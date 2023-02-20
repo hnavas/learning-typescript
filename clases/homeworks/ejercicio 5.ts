@@ -1,19 +1,20 @@
 class Person {
-    protected name: string;
-    protected age: number;
-    //private mail: string;
-    constructor(name: string, age: number) {
+     name: string;
+     age: number;
+     mail: string;
+    constructor(name: string, age: number, mail: string) {
       this.name = name;
       this.age = age;
+      this.mail = mail;
     }
   }
   
   class Student extends Person {
-    private regular: boolean;
+    regular: boolean;
     
-    constructor(name: string, age: number, regular: boolean) {
-      super(name, age);
-      this.regular = regular;
+    constructor(name: string, age: number, mail: string) {
+      super(name, age, mail);
+      this.regular = true;
     }
     
     getFullInfo() {
@@ -21,7 +22,7 @@ class Person {
     }
   }
   
-  const student = new Student("Franco", 26, true);
+  const student = new Student("Franco", 26, '');
   
   student.getFullInfo(); // "Franco (26 years old) - not regular"
   student.name; // Property 'name' is protected and only accessible within class 'Person' and its subclasses
